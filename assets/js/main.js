@@ -167,6 +167,26 @@
 
   });
 
+function sharePortfolio() {
+  const shareData = {
+    title: 'Check out my portfolio!',
+    text: 'Here’s my portfolio website. Have a look:',
+    url: window.location.href
+  };
+
+  if (navigator.share) {
+    navigator.share(shareData)
+      .then(() => console.log('Shared successfully!'))
+      .catch((error) => console.error('Error sharing:', error));
+  } else {
+    navigator.clipboard.writeText(shareData.url).then(() => {
+      alert('Link copied to clipboard!');
+    }).catch(() => {
+      alert('Failed to copy link.');
+    });
+  }
+}
+
   /**
    * Init swiper sliders
    */
