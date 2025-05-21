@@ -169,26 +169,23 @@
 
 function sharePortfolio() {
   const portfolioUrl = window.location.href;
-
-  const shareData = {
-    title: 'Check out my portfolio!',
-    text: 'Here’s my portfolio website. Have a look:',
-    url: portfolioUrl
-  };
+  console.log("Sharing:", portfolioUrl); // Debug log
 
   if (navigator.share) {
-    navigator.share(shareData)
-      .then(() => console.log('Shared successfully!'))
-      .catch((error) => console.error('Error sharing:', error));
-  } else if (navigator.clipboard) {
-    navigator.clipboard.writeText(portfolioUrl)
-      .then(() => alert('Link copied to clipboard!'))
-      .catch(() => alert('Failed to copy link.'));
+    navigator.share({
+      title: 'My Portfolio',
+      text: 'Check out my work!',
+      url: portfolioUrl,
+    })
+      .then(() => alert("Shared successfully!"))
+      .catch((err) => alert("Sharing failed: " + err));
   } else {
-    prompt('Copy this link:', portfolioUrl);
+    // Fallback: Copy URL to clipboard
+    navigator.clipboard.writeText(portfolioUrl)
+      .then(() => alert("Link copied to clipboard!"))
+      .catch(() => prompt("Copy this link:", portfolioUrl));
   }
 }
-
 
   /**
    * Init swiper sliders
