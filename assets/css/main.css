@@ -796,6 +796,23 @@ section,
   border: 2px solid var(--accent-color);
 }
 
+.share-btn {
+  padding: 12px 24px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.share-btn:hover {
+  background-color: #1e7e34;
+  transform: scale(1.1);
+}
+
+
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
