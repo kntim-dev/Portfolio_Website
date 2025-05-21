@@ -648,6 +648,25 @@ section,
   line-height: 0;
 }
 
+.download-cv {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #a3c8f0;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.download-cv:hover {
+  background-color: #071a2e;
+  transform: scale(1.25);
+}
+
+
 /*--------------------------------------------------------------
 # Stats Section
 --------------------------------------------------------------*/
