@@ -167,26 +167,42 @@
 
   });
 
-function sharePortfolio() {
+  
+  /** Share botton
+   */
+
+const shareBtn = document.getElementById("shareBtn");
+
+shareBtn.addEventListener("click", async () => {
   const portfolioUrl = window.location.href;
-  console.log("Sharing:", portfolioUrl); // Debug log
+  const shareData = {
+    title: "My Portfolio",
+    text: "Check out my work!",
+    url: portfolioUrl,
+  };
 
+  // Try native share first (mobile)
   if (navigator.share) {
-    navigator.share({
-      title: 'My Portfolio',
-      text: 'Check out my work!',
-      url: portfolioUrl,
-    })
-      .then(() => alert("Shared successfully!"))
-      .catch((err) => alert("Sharing failed: " + err));
-  } else {
-    // Fallback: Copy URL to clipboard
-    navigator.clipboard.writeText(portfolioUrl)
-      .then(() => alert("Link copied to clipboard!"))
-      .catch(() => prompt("Copy this link:", portfolioUrl));
+    try {
+      await navigator.share(shareData);
+    } catch (err) {
+      console.log("Share canceled:", err);
+    }
+  } 
+  // Fallback: Copy link (desktop)
+  else {
+    try {
+      await navigator.clipboard.writeText(portfolioUrl);
+      alert("Link copied to clipboard! 📋");
+    } catch (err) {
+      // Ultimate fallback: Prompt to copy
+      prompt("Copy this link:", portfolioUrl);
+    }
   }
-}
+});
 
+
+  
   /**
    * Init swiper sliders
    */
