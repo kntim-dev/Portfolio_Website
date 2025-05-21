@@ -1,6 +1,6 @@
  <h3><b>Welcome</b></h3>
 
-Hello and thank you for stopping by! I’m Kwabena D. Ntim, a seasoned Data Analyst & Engineer committed to transforming your raw data into strategic growth. Since 2016, I’ve partnered with clients across several industries mining, retail, healthcare, education, and beyond—to deliver insights that drive real results.
+Hello and thank you for stopping by! I’m Kwabena D. Ntim, a seasoned Data Analyst & Engineer committed to transforming your raw data into strategic growth. Since 2016, I’ve partnered with clients across several industries mining, wholesale & retail, services , education, and beyond—to deliver insights that drive real results.
 
  <b>What You’ll Discover</b>
 
