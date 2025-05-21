@@ -177,20 +177,15 @@ function sharePortfolio() {
   };
 
   if (navigator.share) {
-    // For supported browsers/devices
     navigator.share(shareData)
       .then(() => console.log('Shared successfully!'))
       .catch((error) => console.error('Error sharing:', error));
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(portfolioUrl)
+      .then(() => alert('Link copied to clipboard!'))
+      .catch(() => alert('Failed to copy link.'));
   } else {
-    // Fallback: Copy link to clipboard
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(portfolioUrl)
-        .then(() => alert('Link copied to clipboard! You can now paste it anywhere.'))
-        .catch(() => alert('Failed to copy link. Please copy it manually: ' + portfolioUrl));
-    } else {
-      // Absolute fallback
-      prompt('Copy this link:', portfolioUrl);
-    }
+    prompt('Copy this link:', portfolioUrl);
   }
 }
 
