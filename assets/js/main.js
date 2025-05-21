@@ -168,24 +168,32 @@
   });
 
 function sharePortfolio() {
+  const portfolioUrl = window.location.href;
+
   const shareData = {
     title: 'Check out my portfolio!',
     text: 'Here’s my portfolio website. Have a look:',
-    url: window.location.href
+    url: portfolioUrl
   };
 
   if (navigator.share) {
+    // For supported browsers/devices
     navigator.share(shareData)
       .then(() => console.log('Shared successfully!'))
       .catch((error) => console.error('Error sharing:', error));
   } else {
-    navigator.clipboard.writeText(shareData.url).then(() => {
-      alert('Link copied to clipboard!');
-    }).catch(() => {
-      alert('Failed to copy link.');
-    });
+    // Fallback: Copy link to clipboard
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(portfolioUrl)
+        .then(() => alert('Link copied to clipboard! You can now paste it anywhere.'))
+        .catch(() => alert('Failed to copy link. Please copy it manually: ' + portfolioUrl));
+    } else {
+      // Absolute fallback
+      prompt('Copy this link:', portfolioUrl);
+    }
   }
 }
+
 
   /**
    * Init swiper sliders
