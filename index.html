@@ -829,7 +829,23 @@ Social Media
               <div class="error-message text-danger mt-2 d-none"></div>
             </div>
           </div>
-	<button class="share-btn" id="shareBtn">Share Portfolio</button>    
+	<div style="display: flex; justify-content: center; align-items: center; height: 100px; width: 100%;">
+  <button id="shareBtn" style="
+    padding: 12px 24px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  " 
+  onmouseover="this.style.backgroundColor='#1e7e34'; this.style.transform='scale(1.1)'"
+  onmouseout="this.style.backgroundColor='#28a745'; this.style.transform='scale(1)'">
+    Share Portfolio
+  </button>
+</div>
+
         </form>
       </div>
     </div>
