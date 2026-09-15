@@ -1,0 +1,56 @@
+/* dashboard.css - layout for the interactive dashboard demo pages */
+
+.dash-banner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26px 30px;
+  margin-bottom: 28px;
+}
+.dash-banner h1 { font-size: 1.6rem; margin: 6px 0 10px; }
+.dash-banner p { color: var(--text-soft); max-width: 620px; margin: 0; font-size: .9rem; }
+.dash-filter { display: flex; flex-direction: column; gap: 6px; min-width: 190px; }
+.dash-filter-group { display: flex; flex-wrap: wrap; gap: 16px; }
+.dash-filter label { font-size: .8rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: .4px; }
+.dash-filter select.form-control {
+  background: rgba(255,255,255,.06); border: 1px solid var(--glass-border); color: #fff;
+  padding: 10px 14px; border-radius: 10px; font-size: .95rem;
+}
+.dash-filter select.form-control option { background: #0b0f19; color: #fff; }
+.dash-error { padding: 18px 22px; margin-bottom: 24px; border-color: rgba(255,143,163,.4); color: #ff8fa3; }
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+}
+.kpi-card {
+  padding: 20px 22px;
+  border-radius: 16px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+}
+.kpi-card .kpi-label { font-size: .78rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: .4px; display: block; margin-bottom: 8px; }
+.kpi-card .kpi-value { font-size: 1.7rem; font-weight: 700; color: #fff; display: block; }
+.kpi-card .kpi-delta { font-size: .82rem; margin-top: 4px; display: block; }
+.kpi-delta.up { color: #4ee6b8; }
+.kpi-delta.down { color: #ff8fa3; }
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+.chart-card { padding: 22px 24px; }
+.chart-card h3 { font-size: 1rem; margin-bottom: 16px; color: #fff; }
+.chart-card canvas { max-height: 300px; }
+.chart-card-wide { grid-column: 1 / -1; }
+.chart-card-wide canvas { max-height: 340px; }
+
+@media (max-width: 900px) {
+  .chart-grid { grid-template-columns: 1fr; }
+  .dash-banner { flex-direction: column; align-items: flex-start; }
+}
